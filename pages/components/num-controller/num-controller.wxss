@@ -1,0 +1,13 @@
+/* pages/components/num-controller/num-controller.wxss */
+.num-controller{
+  display: flex;
+  justify-content: flex-end;
+}
+image{
+  height: 40px;
+  width: 40px;
+}
+.num{
+  display: block;
+  margin-top: 10px; 
+}

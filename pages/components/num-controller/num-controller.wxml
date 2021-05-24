@@ -1,0 +1,8 @@
+<!--pages/components/num-controller/num-controller.wxml-->
+<view class="num-controller">
+  <image src="../../../images/minus.png" class="{{num <= min ?'hide': 'true'}}" bindtap="sub"></image>
+  <text class="num">{{num}}</text>
+  <image src="../../../images/plus.png" bindtap="add"></image>
+  
+</view>
+

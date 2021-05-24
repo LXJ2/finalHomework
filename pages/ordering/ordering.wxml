@@ -1,0 +1,76 @@
+<!--pages/ordering/ordering.wxml-->
+<view class="ordering">
+  <view class="title">奈雪的茶</view>
+  <!-- 地理位置 -->
+  <view class="location">
+    <view class="location-left">
+      <view>民治1881MALL大厦店></view>
+      <view>距离您698m</view>
+    </view>
+    <view class="location-right">
+      <text class="txt">自取</text>
+      <text>外卖</text>
+    </view>
+  </view>
+  <!-- 邀请好友喝茶 -->
+  <view class="tea">
+    <view class="tea-txt">邀请好友喝茶,享买茶送包</view>
+    <view class="right-tea">></view>
+  </view>
+  <!-- 选择商品 -->
+  <view class="content">
+    <view class="content-left">
+      <view wx:for="{{shopping}}" wx:key="id" bindtap="clickshop" id="{{item.id}}"
+        class="{{chooseshop ==item.id?'shop-item whitebox':'shop-item'}}">
+        {{item.data}}
+      </view>
+    </view>
+    <view class="content-right">
+      <view class="item"  >
+        <van-card num="{{number}}" wx:for="{{goods}}" wx:key="id"  price="{{item.price}}" desc="{{item.desc}}"
+          title="{{item.title}}" thumb="{{ item.imageURL }}">
+          <view slot="footer">
+            <van-button round type="info" color="#BFFF00" size="mini" bind:click="showOrder" id="{{item.id}}" imageURL="{{item.imageURL}}" desc="{{item.desc}}" title="{{item.title}}" bindmyevent="showOrder">选规格</van-button>                     
+          </view>      
+        </van-card>
+        <van-overlay show="{{ orderShow }}" bind:click="onCloseOrder">
+          <view class="wrapper" >
+            <view class="block" catch:tap="noop">
+              <!-- <view class="content"> -->
+              <image class="tuoxie" src="{{item.imageURL}}"></image>
+              <view>{{item.title}}</view>
+              <view>{{item.desc}}</view>
+              <view>
+                <view>加糖</view>
+                <view class="btn">
+                  <van-button type="primary" color="#BFFF00" size="mini">少糖</van-button>
+                  <van-button type="primary" color="#BFFF00" size="mini">少糖</van-button>
+                  <van-button type="primary" color="#BFFF00" size="mini">少糖</van-button>
+                  <van-button type="primary" color="#BFFF00" size="mini">少糖</van-button>
+                </view>
+              </view>
+              <view>
+                <view>加料</view>
+                <view class="btn">
+                  <van-button type="primary" color="#BFFF00" size="mini">少糖</van-button>
+                  <van-button type="primary" color="#BFFF00" size="mini">少糖</van-button>
+                  <van-button type="primary" color="#BFFF00" size="mini">少糖</van-button>
+                  <van-button type="primary" color="#BFFF00" size="mini">少糖</van-button>
+                </view>
+              </view>
+              <view class="footer">
+              <num-controller nameId="num2" num="{{num2}}" int="{{1}}" min="{{1}}" bindnumChange="numChange"></num-controller>
+             <view class="cartBtn">加入购物车</view>
+              </view>
+            </view>
+          </view>
+        </van-overlay>  
+      </view>
+    </view>
+
+  </view>
+  <!-- 休息 -->
+  <view class="time-txt">
+    休息中（营业时间：10:00-22:30）
+  </view>
+</view>

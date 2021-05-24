@@ -1,0 +1,33 @@
+<!--pages/components/goodsInfo/goodsInfo.wxml-->
+<view bindtap='showModal'>点击弹出</view>
+<view class="commodity_screen" bindtap="hideModal" wx:if="{{showModalStatus}}"></view>
+<view animation="{{animationData}}" class="commodity_attr_box" wx:if="{{showModalStatus}}">
+  <view class="block">
+              <!-- <view class="content"> -->
+              <image class="tuoxie" src="{{item.imageURL}}"></image>
+              <view>{{item.title}}</view>
+              <view>{{item.desc}}</view>
+              <view>
+                <view>加糖</view>
+                <view class="btn">
+                  <van-button type="primary" color="#BFFF00" size="mini">少糖</van-button>
+                  <van-button type="primary" color="#BFFF00" size="mini">少糖</van-button>
+                  <van-button type="primary" color="#BFFF00" size="mini">少糖</van-button>
+                  <van-button type="primary" color="#BFFF00" size="mini">少糖</van-button>
+                </view>
+              </view>
+              <view>
+                <view>加料</view>
+                <view class="btn">
+                  <van-button type="primary" color="#BFFF00" size="mini">少糖</van-button>
+                  <van-button type="primary" color="#BFFF00" size="mini">少糖</van-button>
+                  <van-button type="primary" color="#BFFF00" size="mini">少糖</van-button>
+                  <van-button type="primary" color="#BFFF00" size="mini">少糖</van-button>
+                </view>
+              </view>
+              <view class="footer">
+              <num-controller nameId="num2" num="{{num2}}" int="{{1}}" min="{{1}}" bindnumChange="numChange"></num-controller>
+             <view class="cartBtn">加入购物车</view>
+              </view>
+   </view>
+</view>
